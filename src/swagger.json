@@ -1,0 +1,191 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"CervejaResponse": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"marcaId": {
+						"type": "string"
+					},
+					"nome": {
+						"type": "string"
+					},
+					"descricao": {
+						"type": "string"
+					},
+					"descricaoMarca": {
+						"type": "string"
+					},
+					"link": {
+						"type": "string"
+					},
+					"harmonizacao": {
+						"type": "string"
+					},
+					"ingredientes": {
+						"type": "string"
+					},
+					"teorAlcoolico": {
+						"type": "string"
+					},
+					"temperaturaIdeal": {
+						"type": "string"
+					},
+					"ibu": {
+						"type": "string"
+					},
+					"tipo": {
+						"type": "string"
+					},
+					"img": {
+						"type": "string"
+					},
+					"origemImg": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"marcaId",
+					"nome",
+					"descricao",
+					"descricaoMarca",
+					"link",
+					"harmonizacao",
+					"ingredientes",
+					"teorAlcoolico",
+					"temperaturaIdeal",
+					"ibu",
+					"tipo",
+					"img",
+					"origemImg"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"MarcaResponse": {
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"link": {
+						"type": "string"
+					},
+					"logoImg": {
+						"type": "string"
+					},
+					"nome": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"link",
+					"logoImg",
+					"nome"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "ambev-beers-api",
+		"version": "1.0.0",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/cerveja": {
+			"get": {
+				"operationId": "Listar",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/CervejaResponse"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/marca": {
+			"get": {
+				"operationId": "Listar",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/MarcaResponse"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/marca/{marcaId}/cerveja": {
+			"get": {
+				"operationId": "ListarCervejasPorMarca",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/CervejaResponse"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "marcaId",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/api"
+		}
+	]
+}

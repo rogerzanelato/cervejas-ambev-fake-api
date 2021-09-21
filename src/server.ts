@@ -1,15 +1,7 @@
-import express from "express";
-import cors from "cors";
-import { router } from "./routes";
-import { errorHandlingMiddleware } from "./middlewares/errorHandlingMiddleware";
+import { app } from "./app";
 
-const app = express();
-app.use(cors());
+const port = process.env.PORT || 3000;
 
-app.use(express.json());
-
-app.use(router);
-
-app.use(errorHandlingMiddleware);
-
-app.listen(3000, () => console.log("Server is running"));
+app.listen(port, () =>
+    console.log(`Server is running at port ${port}`)
+);

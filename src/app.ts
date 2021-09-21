@@ -9,7 +9,7 @@ app.use(cors());
 
 app.use(express.json());
 
-app.use("/docs", swaggerUi.serve, async (req: Request, res: Response) => {
+app.use("/", swaggerUi.serve, async (req: Request, res: Response) => {
     return res.send(
       swaggerUi.generateHTML(await import("./swagger.json"))
     );

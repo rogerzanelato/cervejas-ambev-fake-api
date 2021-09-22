@@ -57,6 +57,14 @@ export function RegisterRoutes(app: express.Router) {
 
             function CervejasController_listar(request: any, response: any, next: any) {
             const args = {
+                    nome: {"in":"query","name":"nome","dataType":"string"},
+                    descricao: {"in":"query","name":"descricao","dataType":"string"},
+                    descricaoMarca: {"in":"query","name":"descricaoMarca","dataType":"string"},
+                    harmonizacao: {"in":"query","name":"harmonizacao","dataType":"string"},
+                    ingredientes: {"in":"query","name":"ingredientes","dataType":"string"},
+                    teorAlcoolico: {"in":"query","name":"teorAlcoolico","dataType":"string"},
+                    ibu: {"in":"query","name":"ibu","dataType":"string"},
+                    tipo: {"in":"query","name":"tipo","dataType":"string"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
